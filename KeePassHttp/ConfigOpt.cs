@@ -15,6 +15,7 @@ namespace KeePassHttp
         const string ReturnStringFieldsKey = "KeePassHttp_ReturnStringFields";
         const string SortResultByUsernameKey = "KeePassHttp_SortResultByUsername";
         const string ListenerPortKey = "KeePassHttp_ListenerPort";
+        const string ListenOnAllInterfacesKey = "KeePassHttp_ListenOnAllInterfaces";
 
         public ConfigOpt(AceCustomConfig config)
         {
@@ -79,6 +80,12 @@ namespace KeePassHttp
         {
             get { return _config.GetLong(ListenerPortKey, KeePassHttpExt.DEFAULT_PORT); }
             set { _config.SetLong(ListenerPortKey, value); }
+        }
+
+        public bool ListenOnAllInterfaces
+        {
+            get { return _config.GetBool(ListenOnAllInterfacesKey, false); }
+            set { _config.SetBool(ListenOnAllInterfacesKey, value); }
         }
     }
 }

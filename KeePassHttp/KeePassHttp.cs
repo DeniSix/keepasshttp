@@ -48,6 +48,7 @@ namespace KeePassHttp
         /// </summary>
         private int port = DEFAULT_PORT;
         private const string HTTP_PREFIX = "http://localhost:";
+        private const string HTTP_PREFIX_ALL = "http://+:";
         //private const string HTTPS_PREFIX = "https://localhost:";
         //private int HTTPS_PORT = DEFAULT_PORT + 1;
         private Thread httpThread;
@@ -198,8 +199,9 @@ namespace KeePassHttp
                     listener = new HttpListener();
 
                     var configOpt = new ConfigOpt(this.host.CustomConfig);
+                    var prefix = configOpt.ListenOnAllInterfaces ? HTTP_PREFIX_ALL : HTTP_PREFIX;
 
-                    listener.Prefixes.Add(HTTP_PREFIX + configOpt.ListenerPort.ToString() + "/");
+                    listener.Prefixes.Add(prefix + configOpt.ListenerPort.ToString() + "/");
                     //listener.Prefixes.Add(HTTPS_PREFIX + HTTPS_PORT + "/");
                     listener.Start();
 

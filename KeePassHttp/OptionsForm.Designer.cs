@@ -54,6 +54,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.portNumber = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
+            this.listenOnAllInterfacesCheckbox = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -206,6 +207,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.listenOnAllInterfacesCheckbox);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.portNumber);
             this.tabPage2.Controls.Add(this.label5);
@@ -258,7 +260,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(52, 108);
+            this.label2.Location = new System.Drawing.Point(52, 118);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(299, 13);
             this.label2.TabIndex = 19;
@@ -267,7 +269,7 @@
             // credSearchInAllOpenedDatabases
             // 
             this.credSearchInAllOpenedDatabases.AutoSize = true;
-            this.credSearchInAllOpenedDatabases.Location = new System.Drawing.Point(7, 88);
+            this.credSearchInAllOpenedDatabases.Location = new System.Drawing.Point(6, 98);
             this.credSearchInAllOpenedDatabases.Name = "credSearchInAllOpenedDatabases";
             this.credSearchInAllOpenedDatabases.Size = new System.Drawing.Size(270, 17);
             this.credSearchInAllOpenedDatabases.TabIndex = 18;
@@ -355,6 +357,17 @@
             this.label7.TabIndex = 30;
             this.label7.Text = "Default: 19455\r\nDon\'t forget to change the port number also in\r\nthe plugins like " +
     "chromeIPass, PassIFox, kypass,...";
+            //
+            // listenOnAllInterfacesCheckbox
+            //
+            this.listenOnAllInterfacesCheckbox.AutoSize = true;
+            this.listenOnAllInterfacesCheckbox.Location = new System.Drawing.Point(6, 77);
+            this.listenOnAllInterfacesCheckbox.Name = "listenOnAllInterfacesCheckbox";
+            this.listenOnAllInterfacesCheckbox.Size = new System.Drawing.Size(140, 17);
+            this.listenOnAllInterfacesCheckbox.TabIndex = 31;
+            this.listenOnAllInterfacesCheckbox.Text = "Listen on ALL interfaces";
+            this.listenOnAllInterfacesCheckbox.UseVisualStyleBackColor = true;
+            this.listenOnAllInterfacesCheckbox.CheckedChanged += new System.EventHandler(this.listenOnAllInterfacesCheckbox_CheckedChanged);
             // 
             // OptionsForm
             // 
@@ -410,5 +423,6 @@
         private System.Windows.Forms.NumericUpDown portNumber;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox listenOnAllInterfacesCheckbox;
     }
 }

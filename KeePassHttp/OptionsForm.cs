@@ -46,6 +46,7 @@ namespace KeePassHttp
             SortByUsernameRadioButton.Checked = _config.SortResultByUsername;
             SortByTitleRadioButton.Checked = !_config.SortResultByUsername;
             portNumber.Value = _config.ListenerPort;
+            listenOnAllInterfacesCheckbox.Checked = _config.ListenOnAllInterfaces;
         }
 
         private void okButton_Click(object sender, EventArgs e)
@@ -60,6 +61,7 @@ namespace KeePassHttp
             _config.ReturnStringFields = returnStringFieldsCheckbox.Checked;
             _config.SortResultByUsername = SortByUsernameRadioButton.Checked;
             _config.ListenerPort = (int)portNumber.Value;
+            _config.ListenOnAllInterfaces = listenOnAllInterfacesCheckbox.Checked;
 
             if (_restartRequired)
             {
@@ -199,6 +201,11 @@ namespace KeePassHttp
         private void portNumber_ValueChanged(object sender, EventArgs e)
         {
             _restartRequired = (_config.ListenerPort != portNumber.Value);
+        }
+
+        private void listenOnAllInterfacesCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            _restartRequired = (_config.ListenOnAllInterfaces != listenOnAllInterfacesCheckbox.Checked);
         }
     }
 }
